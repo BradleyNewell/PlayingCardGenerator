@@ -37,4 +37,4 @@ class cardGenerator:
 # Main function to return a clean string with just the card name and its suit
 if __name__ == "__main__":
 	generate = cardGenerator()
-	print(generate.generate_card_name()[0], generate.generate_suit())
+	print(generate.generate_card_name()[0],"of" ,generate.generate_suit())
