@@ -10,31 +10,25 @@ being its numerical value as used in blackjack.
 
 class cardGenerator:
 
-	# The __init__ method contains a dictionary and a list, the dictionary holds the names of the cards and their values.
+	# The __init__ method contains two lists, one containing the names of the cards and the other contains their values.
 	
 	def __init__(self):
 
-		self.values = {
-		'Ace': 1 or 11, 'Jack': 10, 'Queen': 10, 'King': 10, 'Ten': 10, 'Nine': 9,
-		'Eight': 8, 'Seven': 7, 'Six': 6, 'Five': 5, 'Four': 4, 'Three': 3, 'Two': 2
-		}
+		self.values = ['Ace', 'Jack', 'Queen', 'King', 'Ten', 'Nine',
+					'Eight', 'Seven', 'Six', 'Five', 'Four', 'Three', 'Two']
 
 		self.suits = ['Hearts', 'Clubs', 'Diamonds', 'Spades']
 
-	# generate_card_name() is used to 'randomly' return a key, value pair from the dictionary created in the __init__() method
-	
-	def generate_card_name(self):
-			card_name = random.choice(list(self.values.items()))		
-			return card_name
+		self.generate_card_name = random.choice(self.values)
+		self.generate_suit = random.choice(self.suits)
 
 
-	# generate_suit() method is used similarily to the above generate_card_name function but is seperate as it is instead selecting from a list
+	def format_card(self):
+		formatted_card = self.generate_card_name, "of",  self.generate_suit
+		return ' '.join(formatted_card)
 
-	def generate_suit(self):
-		gen_suit = random.choice(self.suits)
-		return gen_suit
 
-# Main function to return a clean string with just the card name and its suit
 if __name__ == "__main__":
-	generate = cardGenerator()
-	print(generate.generate_card_name()[0],"of" ,generate.generate_suit())
+	
+	generate = cardGenerator()	
+	print(generate.format_card())
